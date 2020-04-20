@@ -1,6 +1,5 @@
-import { ApolloClient } from 'apollo-client';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { ApolloLink, Observable } from 'apollo-link';
-import { InMemoryCache } from 'apollo-cache-inmemory';
 import gql from 'graphql-tag';
 
 import { persistCache } from '../';
@@ -21,7 +20,7 @@ export const simulateApp = async ({
 
   await client.query({ query: operation });
   jest.runTimersToTime(
-    persistOptions.debounce ? persistOptions.debounce + 1 : 1001
+    persistOptions.debounce ? persistOptions.debounce + 1 : 1001,
   );
 
   // cache is now persisted

@@ -1,5 +1,5 @@
 import gql from 'graphql-tag';
-import { InMemoryCache } from 'apollo-cache-inmemory';
+import { InMemoryCache } from '@apollo/client';
 import { Hermes } from 'apollo-cache-hermes';
 
 import { persistCache } from '../';
